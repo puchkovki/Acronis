@@ -1,10 +1,34 @@
 #include <iostream>
 #include <string>
-#include <cctype>
+
+// Checking for the overflow
+void overflow(std::string &number) {
+    try {
+    std::stoll(number);
+    } catch (const std::out_of_range& oor) {
+        std::cerr << "Out of Range error: " << oor.what() << '\n';
+        exit(1);
+    }
+}
+
+// Checking the incoming string is it number or not
+void is_it_number(std::string &number) {
+    for(auto i: number) {
+        if(number[0] == '-') {
+            continue;
+        }
+
+        if(!isdigit(i)) {
+            std::cerr << "Tne input is not a number!" << std::endl;
+            exit(1);
+        }
+    }
+}
 
 // The number is divisible by 3, if the numerals' sum is divisible by 3
-bool divisible_by_three(std::string number) {
+void divisible_by_3(std::string number, std::string &fizzbuzz) {
     int numeral = 0;
+    bool result = false;
     
     if(number[0] == '-') {
         number.erase(0, 1);
@@ -22,62 +46,55 @@ bool divisible_by_three(std::string number) {
 
     switch(number[0]) {
         case '0':
-            return true;
+            result = true;
+            break;
         case '3':
-            return true;
+            result = true;
+            break;
         case '6':
-            return true;
+            result = true;
+            break;
         case '9':
-            return true;
+            result = true;
+            break;
     }
 
-    return false;
+    if(result == false) {
+        fizzbuzz.erase(0, 4);
+    }
+}
+
+// The number is divisible by 5, if the last numeral is '0' or '5'
+void divisible_by_5(std::string &number, std::string &fizzbuzz) {
+    if((number[number.length() - 1] != '0') && (number[number.length() - 1] != '5')) {
+        fizzbuzz.erase(4);
+    }
+}
+
+// Checking the string for the errors and divisibility
+void check(std::string &number, std::string &fizzbuzz) {
+    overflow(number);
+    is_it_number(number);
+
+    divisible_by_5(number, fizzbuzz);
+    divisible_by_3(number, fizzbuzz);
 }
 
 int main(void) {
-
-    // Reading and checking number for divisibility
     std::string number;
     while(std::cin >> number) {
         std::string fizzbuzz = "fizzbuzz";
-        bool error = false;
 
-        // Checking the incoming number is it number or not
-        for(auto i: number) {
-            if(number[0] == '-') {
-                continue;
-            }
-            if(!isdigit(i)) {
-                std::cout << "Tne input is not a number. Please write only numbers!" << std::endl;
-                error = true;
-                break;
-            };
-        }
+        check(number, fizzbuzz);
 
-        // If the input is not the number, read next string
-        if(error) {
-            std::cout << number << " ";
-            continue;
+        if(fizzbuzz.length() != 0) {
+            std::cout << fizzbuzz << " ";
         } else {
-            // The number is divisible by 5, if the last numeral is '0' or '5'
-            if((number[number.length() - 1] != '0') && (number[number.length() - 1] != '5')) {
-                fizzbuzz.erase(4);
-            }
-
-            if(!divisible_by_three(number)) {
-                fizzbuzz.erase(0, 4);
-            }
-
             // Not changing the number if it's not divisible by '3' and '5'
-            // Printing the answer
-            if(fizzbuzz.length() != 0) {
-                std::cout << fizzbuzz << " ";
-            } else {
-                std::cout << number << " ";
-                continue;
-            }
-        }    
+            std::cout << number << " ";
+        }
     } 
     
     std::cout << std::endl;
+    return 0;
 }
