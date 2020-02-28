@@ -1,0 +1,17 @@
+{        
+    "name": "hotkeys_theme", //Имя темы
+    "version": "0.0.1",
+    "engines": {
+        "vscode": ">=0.9.0-pre.1"
+    },
+    "publisher": "puchkovki", //имя автора темы
+   "contributes": {
+        "themes": [
+            {
+                "label": "Theme label",
+                "uiTheme": "vs-dark", // use "vs" to select the light UI theme
+                "path": "C:\Users\dns\Documents\GitHub\Acronis\.vscode\extensions\hotkeys_theme\theme\hotkeys.png" //указываем путь к нашему файлу темы
+            }
+        ]
+    }
+}
