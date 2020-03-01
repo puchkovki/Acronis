@@ -12,8 +12,8 @@ void auxiliary_vector(std::vector<int> &domain, int &M) {
 void marking_vector(std::vector<int> &array, std::vector<int> &domain) {
     int size = domain.size();
     for(auto i: array) {
-        if(i > size) {
-            std::cerr << i << " — invalid number in input array!\n";
+        if(i >= size) {
+            std::cerr << i << " is invalid number in input array!\n";
             exit(1);
         }
         domain[i] = -1; 
