@@ -6,7 +6,7 @@
 5. Output to the console.<br/>
 *Division operation and modulo operation are prohibited*
 ## **Solution**
-At first we should test an input value: is it number or not and is it overflowing long long type. Then we are moving to the checking for number's divisibility by 3 and 5.
+At first we should test an input value whether it is number and not overflowing long long type. Then we are moving to the checking for number's divisibility by 3 and 5.
 
 Function `divisible_by_5` checks the number whether it is divisible by 5 or not: if it ends with 5 or 0, then it is divisible by 5.
 
