@@ -6,8 +6,8 @@
 3. Output — array of missing numbers in input array.
 > Example:<br/>
 ```
-M = 5, arraySize = 3, array = {4, 1, 3}<br/>
-Output = {0, 2}<br/>
+M = 5, arraySize = 3, array = {4, 1, 3}
+Output = {0, 2}
 ```
 ## **FizzBuzz**
 1. Input - sequence of numbers.
