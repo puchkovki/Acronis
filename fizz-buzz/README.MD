@@ -6,9 +6,11 @@
 5. Output to the console.<br/>
 *Division operation and modulo operation are prohibited*
 ## **Solution**
-I'm allocating auxiliary array (size M) and marking all input M-n numbers by one-time array traverse. Then you go through the array and output all unmarked elements.
+At first we should test an input value is it number or not. If it is, we check it for the "long long overflow". Then we are moving to the main functions: checking for the divisibility by 3 and 5.
 
-It takes O(M) memory and time.
+Function `divisible_by_5` checks the number whether it is divisible by 5 or not: if it ends with 5 or 0, then it is divisible by 5.
+
+Function `divisible_by_3` checks the number whether it is divisible by 3 or not: if the sum of number's numerals is divisible by 3, then the whole number too. I made an iterative algorithm which continues until the number after "summation" won't become a numeral. 0, 3, 6, 9 are the only numerals which are divided by 3.
 
 ## **How to build**
 
