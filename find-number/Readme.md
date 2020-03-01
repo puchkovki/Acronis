@@ -18,6 +18,6 @@ It takes O(M) memory and time.
 2. Or you may do it in any UNIX shell:
 
 ```
-g++ -Wall -Wextra -pedantic -std=c++17 -O3 -o test solution.cpp
- ./test
+g++ -Wall -Wextra -pedantic -std=c++17 -O3 -Wshadow -Wformat=2 -Wfloat-equal -Wconversion -Wcast-qual -Wcast-align -D_GLIBCXX_DEBUG -D_GLIBCXX_DEBUG_PEDANTIC -fsanitize=address -fsanitize=undefined -fno-sanitize-recover=all -fstack-protector -o test solution.cpp
+./test
 ```
