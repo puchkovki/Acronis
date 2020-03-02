@@ -1,15 +1,13 @@
-* @brief
+ @brief
 *		Find errors and decrease probability of getting errors of the same kind in the future
 *		This piece of code won't compile and it doesn't describe an entire algorithm: just part of some page storage
 *
 * @author
-*		AnnaM
-*/
 
 #include <Windows.h>
 #include <stdio.h>
 
-enum PAGE_COLOR
+enum PAGE_COLOR //
 {
 	PG_COLOR_GREEN = 1, /* page may be released without high overhead */
 	PG_COLOR_YELLOW, /* nice to have */
@@ -17,9 +15,7 @@ enum PAGE_COLOR
 };
 
 
-/**
- * UINT Key of a page in hash-table (prepared from color and address)
- */
+/* UINT Key of a page in hash-table (prepared from color and address) */
 union PageKey
 {
 	struct
@@ -36,9 +32,7 @@ union PageKey
 #define CALC_PAGE_KEY( Addr, Color )	(  (Color) + (Addr) << 8 ) 
 
 
-/**
- * Descriptor of a single guest physical page
- */
+/* Descriptor of a single guest physical page */
 struct PageDesc
 {
 	PageKey			uKey;	

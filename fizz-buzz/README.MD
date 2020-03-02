@@ -12,7 +12,6 @@ Function `divisible_by_5` checks the number whether it is divisible by 5 or not:
 
 Function `divisible_by_3` checks the number whether it is divisible by 3 or not: if the sum of number's numerals is divisible by 3, then the whole number too. I made an iterative algorithm which continues until the number after "summation" won't become a numeral. 0, 3, 6, 9 are the only numerals which are divisible by 3.
 
-
 ## **How to build**
 
 1. Run ```build.sh``` file.

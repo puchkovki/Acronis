@@ -33,7 +33,7 @@ union PageKey
 
 
 /* Prepare from 2 chars the key of the same configuration as in PageKey */
-#define CALC_PAGE_KEY( Addr, Color )	(  (Color) + (Addr) << 8 ) 
+#define CALC_PAGE_KEY( Addr, Color )	(  (Color) + (Addr) << 8 ) //№1: нужно бы скобочки вокруг битовой операции
 
 
 /**
@@ -64,7 +64,7 @@ void PageStrgInit()
 
 PageDesc* PageFind( void* ptr, char color )
 {
-	for( PageDesc* Pg = PageStrg[color]; Pg; Pg = Pg->next );
+	for( PageDesc* Pg = PageStrg[color]; Pg; Pg = Pg->next );//Опечатка мб — точка с запятой лишняя
         if( Pg->uKey == CALC_PAGE_KEY(ptr,color) )
             return Pg;                                                                                                                                     
     return NULL;
@@ -77,11 +77,11 @@ PageDesc* PageReclaim( UINT cnt )
 	while( cnt )
 	{
 		Pg = Pg->next;
-		PageRemove( PageStrg[ color ] );
+		PageRemove( PageStrg[ color ] ); //не объявлена функция
 		cnt--;
 		if( Pg == NULL )
 		{
-			color++;
+			color++;//возможен выход за допустимые размеры (3)
 			Pg = PageStrg[ color ];
 		}
 	}
@@ -91,7 +91,7 @@ PageDesc* PageInit( void* ptr, UINT color )
 {
     PageDesc* pg = new PageDesc;
     if( pg )
-        PAGE_INIT(&pg, ptr, color);
+        PAGE_INIT(&pg, ptr, color);// * вместо & и лишняя ; снова
     else
         printf("Allocation has failed\n");
     return pg;
@@ -116,9 +116,10 @@ void PageDump()
 		printf("PgStrg[(%s) %u] ********** \n", color, PgColorName[color] );
 		for( PageDesc* Pg = PageStrg[++color]; Pg != NULL; Pg = Pg->next )
 		{
+			//несуществеющее поле uAddr структуры
 			if( Pg->uAddr = NULL )
 				continue;
-
+			//несуществеющее поле uAddr и uKey структуры
 			printf("Pg :Key = 0x%x, addr %p\n", Pg->uKey, Pg->uAddr );
 		}
 	}
