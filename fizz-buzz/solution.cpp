@@ -1,3 +1,16 @@
+/*
+Fizzbuzz
+author: Puchkov Kyryll
+date: 22.02.2020
+
+1. Input - sequence of numbers.
+2. If number is divizible by 3, replace it with fizz.
+3. If number is divizible by 5, replace it with buzz.
+4. If both, then fizzbuzz.
+5. Output to the console.
+Division operation and modulo operation are prohibited
+*/
+
 #include <iostream>
 #include <string>
 

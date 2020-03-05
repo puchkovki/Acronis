@@ -1,3 +1,16 @@
+/*
+Find number
+author: Puchkov Kyryll
+date: 22.02.2020
+
+1. You have sequence from 0 to M: [0;M).
+2. Input — unordered array of integer numbers of size M-n.
+3. Output — array of missing numbers in input array.
+Example:
+M = 5, arraySize = 3, array = {4, 1, 3}
+Output = {0, 2}
+*/
+
 #include <iostream>
 #include <vector>
 
@@ -9,22 +22,24 @@ void auxiliary_vector(std::vector<int> &domain, int &M) {
 }
 
 // Marking numbers from the "input" array
-void marking_vector(std::vector<int> &array, std::vector<int> &domain) {
+bool marking_vector(std::vector<int> &array, std::vector<int> &domain) {
     int size = domain.size();
     for(auto i: array) {
         if(i >= size) {
             std::cerr << i << " is invalid number in input array!\n";
-            exit(1);
+            return 1;
         }
         domain[i] = -1; 
     }
+    return 0;
 }
 
-void check_the_sizes(int &M, int& array_size) {
+bool check_the_sizes(int &M, int& array_size) {
     if(M < array_size) {
         std::cerr << "Invalid sizes!\n";
-        exit(1);
+        return 1;
     }
+    return 0;
 }
 
 int main(void) {
@@ -39,7 +54,9 @@ int main(void) {
     std::cout << "Введите M и размер массива" << std::endl;
     std::cin >> M >> array_size;
 
-    check_the_sizes(M, array_size);
+    if(check_the_sizes(M, array_size) == 1) {
+        return 1;
+    }
 
     // Auxiliary variable for reading
     int number;
@@ -50,7 +67,9 @@ int main(void) {
     }
 
     auxiliary_vector(domain, M);
-    marking_vector(array, domain);
+    if(marking_vector(array, domain) == 1) {
+        return 1;
+    }
 
     // Unmarked elements are reqiered
     for(int i = 0; i < M; i++) {
