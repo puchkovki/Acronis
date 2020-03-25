@@ -15,29 +15,29 @@ Output = {0, 2}
 #include <vector>
 
 // Filling the auxiliary array
-void auxiliary_vector(std::vector<int> &domain, int &M) {
-    for(int i = 0; i < M; i++) {
+void auxiliary_vector(std::vector<int> &domain, size_t &M) {
+    for(size_t i = 0; i < M; i++) {
         domain.push_back(i);
     }
 }
 
 // Marking numbers from the "input" array
 bool marking_vector(std::vector<int> &array, std::vector<int> &domain) {
-    int size = domain.size();
+    size_t size = domain.size();
     for(auto i: array) {
         if(i >= size) {
             std::cerr << i << " is invalid number in input array!\n";
-            return 1;
+            return EXIT_FAILURE;
         }
         domain[i] = -1; 
     }
     return 0;
 }
 
-bool check_the_sizes(int &M, int& array_size) {
+bool check_the_sizes(size_t &M, size_t& array_size) {
     if(M < array_size) {
         std::cerr << "Invalid sizes!\n";
-        return 1;
+        return EXIT_FAILURE;
     }
     return 0;
 }
@@ -45,37 +45,47 @@ bool check_the_sizes(int &M, int& array_size) {
 int main(void) {
     // "Input" array and it's size
     std::vector<int> array;
-    int array_size;
+    size_t array_size;
 
     // Auxiliary array and it's size
     std::vector<int> domain;
-    int M;
+    size_t M;
 
     std::cout << "Введите M и размер массива" << std::endl;
     std::cin >> M >> array_size;
 
     if(check_the_sizes(M, array_size) == 1) {
-        return 1;
+        return EXIT_FAILURE;
     }
 
     // Auxiliary variable for reading
-    int number;
+    size_t number;
     std::cout << "Введите массив" << std::endl;
-    for(int i = 0; i < array_size; i++) {
+    for(size_t i = 0; i < array_size; i++) {
         std::cin >> number;
+        if(std::cin.fail()) {
+            // Get cin in the normal operation mode
+            std::cin.clear();
+            // Clear the input buffer
+            std::cin.ignore(32767,'\n'); 
+            std::cerr << "Invalid input!\n";
+            return EXIT_FAILURE;
+        }
         array.push_back(number);
     }
 
     auxiliary_vector(domain, M);
     if(marking_vector(array, domain) == 1) {
-        return 1;
+        return EXIT_FAILURE;
     }
 
     // Unmarked elements are reqiered
-    for(int i = 0; i < M; i++) {
+    for(size_t i = 0; i < M; i++) {
         if(domain[i] != -1) {
             std::cout << domain[i] << " ";
         } 
     }
     std::cout << std::endl;
+
+    return EXIT_SUCCESS;
 }
