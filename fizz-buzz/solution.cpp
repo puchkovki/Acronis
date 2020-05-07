@@ -1,5 +1,4 @@
-/*
-Fizzbuzz
+/* Fizzbuzz
 author: Puchkov Kyryll
 date: 22.02.2020
 
