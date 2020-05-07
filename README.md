@@ -27,6 +27,7 @@ Presentaion about the OOP pattern `Flyweight`.
 
 ## **Obfuscation**
 Task was to make your code most illegible. The source file contains Fast Fourier Transform (FFT) algorithm.
+
 ---
 
 ## **Labs**
