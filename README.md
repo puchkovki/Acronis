@@ -22,6 +22,11 @@ Output = {0, 2}
 ## **Find bugs**
 Find and correct as many bugs as you can in ```orig.cpp```. Version without bugs is ```solution.cpp```.
 
+## **Flyweight**
+Presentaion about the OOP pattern `Flyweight`.
+
+## **Obfuscation**
+Task was to make your code most illegible. The source file contains Fast Fourier Transform (FFT) algorithm.
 ---
 
 ## **Labs**
