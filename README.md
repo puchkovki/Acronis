@@ -1,4 +1,5 @@
 # **Industrial programming course for MIPT**
+
 ---
 ## **Find number**
 1. You have sequence from 0 to M: [0;M).
@@ -9,6 +10,7 @@
 M = 5, arraySize = 3, array = {4, 1, 3}
 Output = {0, 2}
 ```
+
 ## **FizzBuzz**
 1. Input - sequence of numbers.
 2. If number is divizible by 3, replace it with fizz.
@@ -16,5 +18,12 @@ Output = {0, 2}
 4. If both, then fizzbuzz.
 5. Output to the console.<br/>
 *Division operation and modulo operation are prohibited*
+
 ## **Find bugs**
 Find and correct as many bugs as you can in ```orig.cpp```. Version without bugs is ```solution.cpp```.
+
+---
+
+## **Labs**
+
+Several laboratory works made in the second part of the Industrial programming course. Each Lab has it's own README.
