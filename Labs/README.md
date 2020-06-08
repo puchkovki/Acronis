@@ -1,2 +1,12 @@
 
-## *[lab02](https://github.com/puchkovki/lab02)*
+## [lab02](https://github.com/puchkovki/lab02)
+## [lab03](https://github.com/puchkovki/lab03)
+## [lab04](https://github.com/puchkovki/lab04)
+## [lab05](https://github.com/puchkovki/lab05)
+## [lab06](https://github.com/puchkovki/lab06)
+## [lab07](https://github.com/puchkovki/lab07)
+## [lab07](https://github.com/puchkovki/lab08)
+## [lab09](https://github.com/puchkovki/lab09)
+## [lab10](https://github.com/puchkovki/lab010)
+## [supertask](https://github.com/puchkovki/supertask)
+## [Middle-test](https://github.com/puchkovki/Middle-test)
