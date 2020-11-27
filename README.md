@@ -1,10 +1,11 @@
-# **Industrial programming course for MIPT (3-rd grade**
+# **Industrial programming course for MIPT**
 
 ## [**Find number**](find-number/)
 
 You have the integer sequence from 0 to `M` (not inclusive): [0;M). We'll call it `sequence`.
 
 **Input** — unordered array of integer numbers of size `M-n`.
+
 **Output** — array of missing numbers in the `sequence`.
 > Example:
 ```

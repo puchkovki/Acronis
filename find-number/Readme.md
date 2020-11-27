@@ -3,6 +3,7 @@
 You have the integer sequence from 0 to `M` (not inclusive): [0;M). We'll call it `sequence`.
 
 **Input** — unordered array of integer numbers of size `M-n`.
+
 **Output** — array of missing numbers in the `sequence`.
 > Example:
 ```
